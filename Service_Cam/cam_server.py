@@ -4,18 +4,18 @@ import numpy as np
 import cv2
 import urllib.request as ur
 
-ip = "10.0.0.29"
-url = "http://"+ip+"/capture"
+ip = "192.168.43.1:8080"
+url = "http://"+ip+"/video"
 net = cv2.dnn.readNetFromCaffe('deploy.prototxt.txt', 'res10_300x300_ssd_iter_140000.caffemodel')
 min_con = 0.9
 
 app = Flask(__name__)
+status = False
+capture = 0
 
-def detect_faces(url, net, min_con):
+def detect_faces(image, net, min_con):
 	# Carregando Imagem e Transformando em Blob
-	image = ur.urlopen(url,timeout=2)
-	image = np.array(bytearray(image.read()),dtype=np.uint8)
-	image = cv2.imdecode(image,-1)
+
 	(h, w) = image.shape[:2]
 	center_img_x = (w / 2)
 	center_img_y = (h / 2)
@@ -65,28 +65,42 @@ def detect_faces(url, net, min_con):
 
 
 def process_image():
-    while True:
-        img = detect_faces(url,net,min_con)
-        yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + img.tobytes() + b'\r\n\r\n')
+	contador = 0
+	img_hist = None
+	while True:
+		(grabbed, img) = capture.read()
+		if grabbed:
+			status = True
+			if contador < 5:
+				retval , img = cv2.imencode('.png',img)
+				contador += 1
+				if img_hist is not None:
+					yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + img_hist.tobytes() + b'\r\n\r\n')
+				else:
+					yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + img.tobytes() + b'\r\n\r\n')
+			else:
+				img = detect_faces(img,net,min_con)
+				img_hist = img
+				contador = 0
+				yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + img.tobytes() + b'\r\n\r\n')
+
+		status = False
+		yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + img.tobytes() + b'\r\n\r\n')
 
 
 @app.route("/video_feed",methods=["GET","POST"])
 def video_feed():
-    return Response(process_image(), mimetype='multipart/x-mixed-replace; boundary=frame')
+	resp = Response(process_image(), mimetype='multipart/x-mixed-replace; boundary=frame')
+	return resp
 
 
 @app.route("/cam_status", methods=["GET","POST"])
 def get_status():
-	'''
-    try:
-        image = ur.urlopen(url,timeout=.2)
-        return jsonify({'status':True})
-    except:
-        return jsonify({'status':False})
-	'''
-	return jsonify({'status':True})
+	return jsonify({'status':status})
     
 
 if __name__ == "__main__":
-    app.run(debug=True,port=5001,host="0.0.0.0")
-	
+	status = True
+	capture = cv2.VideoCapture(url)
+	capture.set(cv2.CAP_PROP_BUFFERSIZE, 3)
+	app.run(debug=True,port=5001,host="0.0.0.0")
