@@ -1,0 +1,32 @@
+id;speech;intent
+1;Quem é você;1
+2;Oque é você;1
+3;O que é você;1
+4;Oque você faz;2
+5;O que você faz;2
+6;Quais suas habilidades;2
+7;Oque você pode fazer;2
+8;O que você pode fazer;2
+9;Você faz oque;2
+10;Você faz o que;2
+11;Me conte uma piada;3
+12;Conte uma piada;3
+13;Conta uma piada;3
+14;Diz uma piada;3
+15;Fala uma piada;3
+16;Para que você existe;1
+17;Pra que você existe;1
+18;Pra que você serve;1
+19;Qual o motivo da sua existencia;1
+20;Quais seus serviços;2
+21;Qual seu serviço;2
+22;Qual sua utilidade;2
+23;Oi;4
+24;Olá;4
+25;E ai?;4
+26;Oi , tudo bom?;4
+27;E ai , suave?;4
+28;Suave?;4
+29;Bom Dia;4
+30;Boa Tarde;4
+31;Boa Noite;4

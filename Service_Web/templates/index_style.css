@@ -1,0 +1,160 @@
+body{
+    margin: 0px;
+    background-color: white;
+    font-family: 'Abel', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited{
+    color: white;
+}
+
+.float-bar{
+    position: fixed;
+    width: 100%;
+}
+
+.banner{
+    background-color: #132637;
+    padding: 7px;
+    display: flex;
+}
+
+.banner div{
+    padding-left: 30px;
+    width: 100%;
+    color: white;
+    font-size: 30px;
+}
+
+.nav-bar{
+    display: flex;
+    padding-left: 30px;
+    background-color: #132637;
+}
+
+.nav-button{
+    padding: 5px 15px 5px 15px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav-button:hover{
+    background-color: #274d6e;
+}
+
+.nav-button:active{
+    border-width: 0px 0px 5px 0px;
+    border-color: white;
+    border-style: solid;
+}
+
+.main{
+    display: flex;
+    padding-top: 100px;
+}
+
+.left-side{
+    padding: 2px;
+    width: 33%;
+    height: 100%;
+}
+
+.left-side h2{
+    color: #707070;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.left-side p{
+    margin-top: 5px;
+    color: #707070;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.right-side{
+    padding: 2px;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.right-side h2{
+    color: #707070;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.service-component{
+    margin-left: 15%;
+    margin-top: 7px;
+    background-color: white;
+    border-color: #c0c0c0;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    height: 60px;
+    width: 67%;
+    box-shadow: #b1b1b1 1px 1px 5px;
+}
+
+.service-black-box{
+    width: 14px;
+    background-color: #181110;
+}
+
+.box-rot{
+    transform: rotate(90deg);
+    font-size: 12px;
+    text-align: center;
+    color: white;
+    line-height: 14px;
+    margin-top: 12px;
+}
+
+.icon-box{
+    width: 10%;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.label-box{
+    padding-left: 3%;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    width: 68%;
+}
+
+.status-box{
+    display: flex;
+    align-items: center;
+    color: red;
+    font-size: 35px;
+    width: 12%;
+    margin-right: 5%;
+}
+
+.camera-box{
+    align-self: center;
+    margin-left: 15%;
+    width: 600px;
+    margin-top: 5px;
+    border-color: #b1b1b1;
+    border-width: 3px;
+    padding: 5px;
+    box-shadow: #757575 0px 0px 5px;
+}
+
+.h2-deco{
+    font-size: 48px;
+    margin-left: 15%;
+}

@@ -1,0 +1,123 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index_style.css')}}">
+<link rel="stylesheet" type="text/css" href="index_style.css">
+
+<html>
+<header>
+    <title>Home</title>
+</header>
+
+<body>
+    <div class="float-bar">
+        <div class="banner">
+            <div>Mr.BotRob</div>
+        </div>
+        <nav class="nav-bar">
+            <div class="nav-button">
+                <a href="{{url_for('main')}}">Home</a>
+            </div>
+            <div class="nav-button">
+                <a href="{{url_for('components')}}">Componentes</a>
+            </div>
+            <div class="nav-button">
+                Imagens
+            </div>
+            <div class="nav-button">
+                Sobre
+            </div>
+        </nav>
+    </div>
+
+    <div class="main">
+        <div class="left-side">
+            <div class="services-box">
+                <div class="h2-deco">
+                    <h2> Serviços : </h2>
+                    <p>Aqui é a lista de Serviços disponiveis no Robô.</p>
+                </div>
+
+                <div class="service-component">
+                    <div class="service-black-box">
+                        <div class="box-rot">Camera</div>
+                    </div>
+                    <div class="icon-box"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
+                    <div class="label-box"><label>Camera</label></div>
+                    <div class="status-box" id="camera">
+                        <i id="camera-icon" class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="service-component">
+                    <div class="service-black-box">
+                        <div class="box-rot">Sensor</div>
+                    </div>
+                    <div class="icon-box"><i class="fa fa-podcast" aria-hidden="true"></i></div>
+                    <div class="label-box"><label>Sensor</label></div>
+                    <div class="status-box" id="sensor">
+                        <i id="sensor-icon" class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <!--
+                <div class="service-component">
+                    <div class="service-black-box">
+                        <div class="box-rot">Bateria</div>
+                    </div>
+                    <div class="icon-box"><i class="fa fa-battery-full" aria-hidden="true"></i></div>
+                    <div class="label-box"><label>Bateria</label></div>
+                    <div class="status-box" id="bateria">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+                </div>-->
+
+                <div class="service-component">
+                    <div class="service-black-box">
+                        <div class="box-rot">R/Fala</div>
+                    </div>
+                    <div class="icon-box-clickable"><i class="fa fa-microphone" aria-hidden="true" onclick="testSpeech()"></i></div>
+                    <div class="label-box"><label>Reconhecimento de Fala</label></div>
+                    <div class="status-box" id="microfone">
+                        <i id="microfone-icon" class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="speech-box" id="speech-data">
+                </div>
+
+                <div class="service-component">
+                    <div class="service-black-box">
+                        <div class="box-rot">Chatbot</div>
+                    </div>
+                    <div class="icon-box"><i class="fa fa-volume-up" aria-hidden="true"></i></div>
+                    <div class="label-box"><label>Chatbot</label></div>
+                    <div class="status-box" id="chatbot">
+                        <i id="chatbot-icon" class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="right-side">
+            <div class="h2-deco">
+                <h2> Feed : </h2>
+            </div>
+
+
+            <div class="camera-box">
+                <img id="cam-feed" style="-webkit-user-select: none;margin: auto;"
+                    src="{{url_for('static', filename='img/screen.gif')}}" width="600" height="400">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
