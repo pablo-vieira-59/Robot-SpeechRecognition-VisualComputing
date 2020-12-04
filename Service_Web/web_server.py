@@ -19,7 +19,8 @@ def services_status():
     sensor_status = get_status("http://127.0.0.1:5002/sensor_status")
     speech_status = get_status("http://127.0.0.1:5003/speech_status")
     chatbot_status = get_status("http://127.0.0.1:5004/chatbot_status")
-    return jsonify({'cam_status':cam_status,'sensor_status':sensor_status,'speech_status':speech_status,'chatbot_status':chatbot_status})
+    tts_status = get_status("http://127.0.0.1:5005/tts_status")
+    return jsonify({'cam_status':cam_status,'sensor_status':sensor_status,'speech_status':speech_status,'chatbot_status':chatbot_status,'tts_status':tts_status})
     
 def get_status(uri :str):
     try:

@@ -1,0 +1,66 @@
+speech;intent
+Quem é você;informacao
+Oque é você;informacao
+O que é você;informacao
+Você é um robô;informacao
+Oque você faz;habilidades
+O que você faz;habilidades
+Quais suas habilidades;habilidades
+Oque você pode fazer;habilidades
+O que você pode fazer;habilidades
+Você faz oque;habilidades
+Você faz o que;habilidades
+Me conte uma piada;piada
+Conte uma piada;piada
+Conta uma piada;piada
+Diz uma piada;piada
+Fala uma piada;piada
+Tem como contar uma piada;piada
+Para que você existe;informacao
+Pra que você existe;informacao
+Pra que você serve;informacao
+Qual o motivo da sua existencia;informacao
+Quais seus serviços;habilidades
+Qual seu serviço;habilidades
+Qual sua utilidade;habilidades
+Qual o seu propósito;habilidades
+Oi;saudacao
+Olá;saudacao
+E ai;saudacao
+Oi , tudo bom;saudacao
+E ai , suave;saudacao
+Suave;saudacao
+Bom Dia;saudacao
+Boa Tarde;saudacao
+Boa Noite;saudacao
+E ai, tudo bom;saudacao
+Como está;saudacao
+Qual a previsão do tempo;tempo
+Como vai ser o dia hoje;tempo
+Qual o clima de hoje;tempo
+Vai chover hoje;tempo
+Vai fazer sol hoje;tempo
+Está muito quente;tempo
+Vai fazer sol;tempo
+Qual a humidade de hoje;tempo
+Está ventando muito;tempo
+Qual a probabilidade de chover;tempo
+Vai chover;tempo
+Qual o clima;tempo
+Tem alguma previsão do clima;tempo
+Hoje ta com cara de chuva;tempo
+Anota algo pra mim;tarefas
+Oque tem pra fazer hoje;tarefas
+Quais as minhas tarefas;tarefas
+Lista de tarefas;tarefas
+Qual minha agenda;tarefas
+Tenho algo para fazer hoje;tarefas
+Tenho algo marcado hoje;tarefas
+Pesquisa algo para mim;pesquisa
+Procura um negocio para mim;pesquisa
+Qual o siginificado disso;pesquisa
+Faz uma pesquisa para mim;pesquisa
+Tem como pesquisar uma coisa;pesquisa
+Procura na internet;pesquisa
+Não sei o que é isso;pesquisa
+
