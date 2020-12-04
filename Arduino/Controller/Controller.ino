@@ -2,7 +2,6 @@
 
 // Definindo Led de Estado do Microfone
 #define led_pin 2
-bool led_voice_status = false;
 
 // Definindo Entrada do Motor Esquerdo
 #define motor_l1 5
@@ -20,18 +19,10 @@ bool led_voice_status = false;
 #define motorPower 255
 
 // Definindo delayTime de Espera entre Estados
-int delayTime = 100;
+int delayTime = 50;
 
 // Definindo estado do requerimento da comunicação serial
-int req = 0;
-
-// Codigo ASCII das Letras
-#define w 119
-#define a 97
-#define s 115
-#define d 100
-#define r 114
-#define l 108
+String req = "";
 
 // Inicialização
 void setup() {
@@ -54,41 +45,39 @@ void loop() {
   if (Serial.available() > 0) {
     
     // Lê Buffer Serial - Valor da letra recebida em ASCII
-    req = Serial.read();
+    req = getMessage();
 
-    if (req == w) {
+    if (req == "w") {
       motorFoward();
       delay(delayTime);
       motorStop();
     }
     
-    if (req == a) {
+    if (req == "a") {
       motorLeft();
       delay(delayTime);
       motorStop();
     }
 
-    if (req == s) {
+    if (req == "s") {
       motorBackward();
       delay(delayTime);
       motorStop();
     }
     
-    if (req == d) {
+    if (req == "d") {
       motorRight();
       delay(delayTime);
       motorStop();
     }
-    if (req == r) {
-      while(Serial.available()){
-        Serial.read();
-      }
+    
+    if (req == "r") {
       float sensor = sensorDistance();
       Serial.println(sensor);
     }
 
-    if (req == l){
-      led_voice_status = ledControl(led_voice_status);
+    if (req == "l"){
+      ledControl(led_voice_status);
     }
   }
 }
@@ -138,12 +127,26 @@ void motorStop() {
 }
 
 bool ledControl(bool led_status){
-  if(led_status){
-     digitalWrite(led_pin, LOW);
-     return false;
+  digitalWrite(led_pin, LOW);
+  delay(1000);
+}
+
+void clearSerial(){
+  while(Serial.available()>0){
+    Serial.read();
+    delay(15);
   }
-  else{
-    digitalWrite(led_pin, HIGH);
-    return true;
+}
+
+String getMessage(){
+  char currentByte = "";
+  String message = "";
+  while(Serial.available() > 0){
+    currentByte = Serial.read();
+    if(currentByte != '\n'){
+      message.concat(currentByte);
+    }
+    delay(15);
   }
+  return message;
 }

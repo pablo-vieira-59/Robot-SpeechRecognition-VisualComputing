@@ -12,7 +12,7 @@ print(train)
 x_train = train['speech']
 y_train = train['intent']
 
-vectorizer = CountVectorizer(ngram_range=(1,3),strip_accents='ascii')
+vectorizer = CountVectorizer(ngram_range=(1,3),strip_accents='ascii',lowercase=True)
 x_train = vectorizer.fit_transform(x_train)
 x_train = x_train.toarray()
 

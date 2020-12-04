@@ -1,14 +1,14 @@
-speech;intent
+﻿speech;intent
 Quem é você;informacao
-Oque é você;informacao
+o que é você;informacao
 O que é você;informacao
 Você é um robô;informacao
-Oque você faz;habilidades
+o que você faz;habilidades
 O que você faz;habilidades
 Quais suas habilidades;habilidades
-Oque você pode fazer;habilidades
+o que você pode fazer;habilidades
 O que você pode fazer;habilidades
-Você faz oque;habilidades
+Você faz o que;habilidades
 Você faz o que;habilidades
 Me conte uma piada;piada
 Conte uma piada;piada
@@ -50,7 +50,7 @@ Qual o clima;tempo
 Tem alguma previsão do clima;tempo
 Hoje ta com cara de chuva;tempo
 Anota algo pra mim;tarefas
-Oque tem pra fazer hoje;tarefas
+o que tem pra fazer hoje;tarefas
 Quais as minhas tarefas;tarefas
 Lista de tarefas;tarefas
 Qual minha agenda;tarefas
@@ -63,4 +63,56 @@ Faz uma pesquisa para mim;pesquisa
 Tem como pesquisar uma coisa;pesquisa
 Procura na internet;pesquisa
 Não sei o que é isso;pesquisa
+Como vai;saudacao
+Qual seu nome;informacao
+Quem é você;informacao
+Que horas são;tempo
+Qual o tempo;tempo
+Qual sua idade;informacao
+Pesquise Google;pesquisa
+Pesquisar pesquisa;pesquisa
+Pesquise;pesquisa
+O que é um chatbot;pesquisa
+Olá como vai;saudacao
+Olá qual seu nome;saudacao
+O que é a vida;pesquisa
+Qual o significado da vida;pesquisa
+Qual o tempo de hoje;tempo
+Quem é você;informacao
+O que é arduino;pesquisa
+Pesquise arduino;pesquisa
+Pesquisar arduino;pesquisa
+Procure Arduino;pesquisa
+Procure;pesquisa
+Procure o que é isso;pesquisa
+Procure Tal coisa;pesquisa
+Google arduino;pesquisa
+Google isso;pesquisa
+Como posso ajudar;saudacao
+Anote o que eu vou falar na reunião;tarefas
+Anote isso para mim;tarefas
+Qual é a piada de hoje;piada
+Piada de hoje;piada
+Hoje tem piada;piada
+Será que chove muito;tempo
+Como é seu nome;informacao
+Quem te criou;informacao
+Você anda;informacao
+Gostaria de saber se você vai destriur o mundo;informacao
+Pesquise as fazes da lua;pesquisa
+Qual é o significado da vida;pesquisa
+Anote meu número;tarefas
+Qual é a velocidade que você anda;informacao
+Onde posso comprar pão;pesquisa
+Você conhece Sávio;pesquisa
+Quem é Bolsonaro;pesquisa
+Quantos litros de água preciso beber;pesquisa
+
+
+
+
+
+
+
+
 

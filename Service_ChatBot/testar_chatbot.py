@@ -37,12 +37,12 @@ def greeting_response(input_message :str):
             greeting = greet
             break
     possible_answers = get_answers_by_class('saudacao')
-    answer = "%s%s%s" % (greeting, ', ' , possible_answers[random.randint(0, len(possible_answers))])
+    answer = "%s%s%s" % (greeting, ', ' , possible_answers[random.randint(0, len(possible_answers)-1)])
     return answer
 
 def common_responses(predicted_class :str):
     possible_answers = get_answers_by_class(predicted_class)
-    answer = possible_answers[random.randint(0, len(possible_answers))]
+    answer = possible_answers[random.randint(0, len(possible_answers)-1)]
     return answer
 
 def get_answers_by_class(predicted_class :str):
