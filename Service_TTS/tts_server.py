@@ -6,7 +6,7 @@ import numpy as np
 
 from gtts import gTTS
 from flask_cors import CORS
-from flask import Flask, make_response, render_template, Request, jsonify
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
@@ -16,23 +16,21 @@ def speak(text, filename):
     tts.save(filename)
     p.playsound(filename)
         
-def get_speech():
-    request = requests.get("http://127.0.0.1:5004/chatbot_answer")
-    r_json = request.text
-    speech = json.loads(r_json)['speech']
-    return speech
-
 @app.route("/tts_status",methods=["GET","POST"])    
 def get_status():
     return jsonify({'status':True})
 
-@app.route("/tts_answer",methods=["GET","POST"])
+@app.route("/tts_speak",methods=["GET","POST"])
 def chat():
     ind = np.random.randint(0,9999999)
     filename = "output" + str(ind) + ".mp3"
-    speech = get_speech()
+
+    content = request.json
+    speech = content['message']
     speak(speech, filename)
+
     os.remove(filename)
+    
     return jsonify({'speech':speech})
 
 if __name__ == "__main__":

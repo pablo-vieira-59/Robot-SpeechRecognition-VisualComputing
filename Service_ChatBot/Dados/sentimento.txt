@@ -1,0 +1,34 @@
+Isso;1
+Correto;1
+Exatamente;1
+Isso mesmo;1
+Isso ai;1
+Certo;1
+Tudo certo;1
+Positivo;1
+Perfeito;1
+Essa peça mesmo;1
+Quero;1
+Queria;1
+Provavelmente;1
+Talvez;1
+Espero;2
+Sim;1
+Sim isso mesmo;1
+Ta Certo;1
+
+Não;2
+Errado;2
+Não é isso não;2
+Negativo;2
+Ta errado;2
+Acho que não;2
+Talvez não;2
+Ai não;2
+Quero não;2
+Não queria;2
+Talvez não;2
+Provavelmente não;2
+Espero que não;2
+Acho Dificil;2
+Dificil;2

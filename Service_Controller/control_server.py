@@ -1,24 +1,20 @@
-from flask import Flask, make_response, render_template, Request, jsonify
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 from udp import UDPclient
-
-import json
-import numpy as np
-import requests
 
 udp_client = UDPclient("10.0.0.29",5900,1024)
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
+@app.route("/send_command",methods=["GET","POST"])    
+def send_command():
+    content = request.json
+    udp_client.send_message(content['command'])
+    return jsonify({'command':content['command']})
 
 @app.route("/sensor_status",methods=["GET","POST"])    
 def get_status():
-    '''
-    udp_client.send_message("r")
-    msg = udp_client.receive_message(1)
-    if(msg != None):
-        return jsonify({'status':True})
-    else:
-        return jsonify({'status':False})
-    '''
     return jsonify({'status':True})
        
 if __name__ == "__main__":

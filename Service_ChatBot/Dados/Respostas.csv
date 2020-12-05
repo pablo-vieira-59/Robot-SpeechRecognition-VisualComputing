@@ -1,25 +1,40 @@
-speech;intent
-em que posso te ajudar?;saudacao
-tudo bom? em que posso te ajudar?;saudacao
-tudo bom?;saudacao
-posso te ajudar em algo?;saudacao
-tem algo que posso fazer por você?;saudacao
-Por que a mulher não pode ser eletricista? Porque ela leva 9 meses para dar a luz!;piada
-O que fala o livro de Matemática para o livro de História? Não me venha com história que eu já estou cheio de problema!;piada
-Porque o anão não pode lutar boxe? porque ele dá golpe baixo.;piada
-Qual o cachorro que é professor? É o cãolecionador.;piada
-Qual o cachorro do fazendeiro? É o cãopeão.;piada
-Qual o carrocho que adivinha o futuro? É o cãoguru.;piada
-Qual é a diferença entre uma bicicleta e uma privada? A bicicleta você senta pra correr, e a privada você corre pra sentar!;piada
-Eu posso informar as horas , dizer quem eu sou , dizer qual o tempo previsto , contar piadas e outras coisas ai.;habilidades
-Eu posso dizer quem eu sou , contar piadas ,dizer qual o tempo previsto , informar as horas e outras coisas ai;habilidades
-Quer escutar algumas piadas? eu posso fazer isso , alem de outras coisas.;habilidades
-Posso pesquisar algo para voce!;habilidades
-Posso anotar coisas na lista de afazeres.;habilidades
-Posso te dar a previsão do tempo! Basta pedir;habilidades
-Eu sou uma inteligencia artificial criada para ser um assistente.;informacao
-Eu sou um assistente virtual, feito com arduino e uma camera para eu observar o que está acontecendo.;informacao
-Eu sou um Robô , feito para ser um assistente.;informacao
-Teste;tempo
-Teste;tarefas
-Teste;pesquisa
+speech;intent;subclass
+em que posso te ajudar?;saudacao;0
+tudo bom? em que posso te ajudar?;saudacao;0
+tudo bom?;saudacao;0
+posso te ajudar em algo?;saudacao;0
+tem algo que posso fazer por você?;saudacao;0
+
+Por que a mulher não pode ser eletricista? Porque ela leva 9 meses para dar a luz!;piada;0
+O que fala o livro de Matemática para o livro de História? Não me venha com história que eu já estou cheio de problema!;piada;0
+Porque o anão não pode lutar boxe? porque ele dá golpe baixo.;piada;0
+Qual o cachorro que é professor? É o cãolecionador.;piada;0
+Qual o cachorro do fazendeiro? É o cãopeão.;piada;0
+Qual o carrocho que adivinha o futuro? É o cãoguru.;piada;0
+Qual é a diferença entre uma bicicleta e uma privada? A bicicleta você senta pra correr, e a privada você corre pra sentar!;piada;0
+
+Eu posso informar as horas , dizer quem eu sou , dizer qual o tempo previsto , contar piadas e outras coisas ai.;informacao;1
+Eu posso dizer quem eu sou , contar piadas ,dizer qual o tempo previsto , informar as horas e outras coisas ai;informacao;1
+Quer escutar algumas piadas? eu posso fazer isso , alem de outras coisas.;informacao;1
+Posso pesquisar algo para voce!;informacao;1
+Posso anotar coisas na lista de afazeres.;informacao;1
+Posso te dar a previsão do tempo! Basta pedir;informacao;1
+
+Meu nome é Jailson, Eu sou uma inteligencia artificial criada para ser um assistente.;informacao;2
+Eu sou um assistente virtual, feito com arduino e uma camera para eu observar o que está acontecendo, Meu nome é Jailson;informacao;2
+Eu sou o Jailson , sou um robô construido para ser um assistente.;informacao;2
+
+Teste;tempo;0
+
+Teste;tarefas;0
+
+Teste;pesquisa;0
+
+Ok;sentimento;1
+
+Tudo bem então;sentimento;2
+Deixa pra proxima então;sentimento;2
+Certo , fica pra proxima;sentimento;2
+Ok;sentimento;2
+Ta bom;sentimento;2
+

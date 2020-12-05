@@ -1,0 +1,30 @@
+O que você faz;1
+Quais suas habilidades;1
+O que você pode fazer;1
+Você faz o que;1
+Quais seus serviços;1
+Qual seu serviço;1
+Qual sua utilidade;1
+Qual o seu propósito;1
+Quais suas funções;1
+Qual sua funcionalidade;1
+Para que você existe;1
+Pra que você existe;1
+Pra que você serve;1
+Qual o motivo da sua existencia;1
+Pode me ajudar;1
+Me de suas informações;1
+
+Quem é você;2
+o que é você;2
+Você é um robô;2
+Qual seu nome;2
+Quem é você;2
+Qual sua idade;2
+Qual é a velocidade que você anda;2
+Como é seu nome;2
+Quem te criou;2
+Você anda;2
+Você tem nome;2
+Qual que é seu nome;2
+Nome;2

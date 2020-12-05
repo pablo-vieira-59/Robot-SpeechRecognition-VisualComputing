@@ -33,7 +33,6 @@ void setup() {
   pinMode(trigger,OUTPUT);
   pinMode(echo,INPUT);
   pinMode(led_pin,OUTPUT);
-  led_voice_status = false;
 
   // Inicia Estado do Sensor
   digitalWrite(trigger,LOW);
@@ -77,7 +76,7 @@ void loop() {
     }
 
     if (req == "l"){
-      ledControl(led_voice_status);
+      ledControl();
     }
   }
 }
@@ -126,9 +125,10 @@ void motorStop() {
   digitalWrite(motor_l2, LOW);
 }
 
-bool ledControl(bool led_status){
-  digitalWrite(led_pin, LOW);
+bool ledControl(){
+  digitalWrite(led_pin, HIGH);
   delay(1000);
+  digitalWrite(led_pin, LOW);
 }
 
 void clearSerial(){

@@ -1,0 +1,28 @@
+Qual a previsão do tempo;1
+Como vai ser o dia hoje;1
+Qual o clima de hoje;1
+Vai chover hoje;1
+Vai fazer sol hoje;1
+Está muito quente;1
+Vai fazer sol;1
+Qual a humidade de hoje;1
+Está ventando muito;1
+Qual a probabilidade de chover;1
+Vai chover;1
+Qual o clima;1
+Tem alguma previsão do clima;1
+Hoje ta com cara de chuva;1
+Qual o tempo;1
+Qual o tempo de hoje;1
+Será que chove muito;1
+Como esta o tempo;1
+
+Que horas são;2
+Que horas são agora;2
+Qual o horário;2
+Horas;2
+Agora são que horas;2
+Tem como dizer as horas;2
+Tem a hora;2
+Que dia é hoje;2
+Qual o dia de hoje;2

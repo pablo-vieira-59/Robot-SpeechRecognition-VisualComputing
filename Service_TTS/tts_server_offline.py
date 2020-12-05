@@ -36,11 +36,11 @@ def get_speech():
     speech = json.loads(r_json)['speech']
     return speech
 
-@app.route("/chatbot_status",methods=["GET","POST"])    
+@app.route("/tts_status",methods=["GET","POST"])    
 def get_status():
     return jsonify({'status':True})
 
-@app.route("/chatbot_answer",methods=["GET","POST"])    
+@app.route("/tts_answer",methods=["GET","POST"])    
 def chat():
     speech = get_speech()
     start_speech(speech)
