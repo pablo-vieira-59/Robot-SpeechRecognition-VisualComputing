@@ -46,6 +46,7 @@ class UDPclient():
         try:
             self.sock.settimeout(timeout)
             data = self.sock.recv(self.buffer_size)
+            data = data.decode('utf-8')
             return data
         except:
             return None

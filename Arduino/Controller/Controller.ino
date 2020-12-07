@@ -19,7 +19,7 @@
 #define motorPower 255
 
 // Definindo delayTime de Espera entre Estados
-int delayTime = 50;
+int delayTime = 100;
 
 // Definindo estado do requerimento da comunicação serial
 String req = "";

@@ -19,3 +19,7 @@ Procura na internet;0
 Não sei o que é isso;0
 Pesquise;0
 Pesquisa no Google;0
+Wikipedia;0
+Wiki;0
+Pesquisa na Wikipedia;0
+Procura no Wikipedia;0

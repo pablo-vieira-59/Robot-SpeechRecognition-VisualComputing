@@ -15,31 +15,35 @@ def make_prediction(text :str, model):
 
 def weather_response(input_message :str):
     pred,_ = make_prediction(input_message, model_weather)
+    msg = ""
     if int(pred) == 1:
-        request = requests.get("https://api.hgbrasil.com/weather?woeid=455839")
-        request = request.text
-        request = json.loads(request)['results']
+        try:
+            request = requests.get("https://api.hgbrasil.com/weather?woeid=455839")
+            request = request.text
+            request = json.loads(request)['results']
 
-        cidade = request['city_name']
-        descricao = request['description']
-        humidade = request['humidity']
-        vento = request['wind_speedy']
-        temperatura = request['temp']
+            cidade = request['city_name']
+            descricao = request['description']
+            humidade = request['humidity']
+            vento = request['wind_speedy']
+            temperatura = request['temp']
 
-        msg = "A previsão para %s é de %s , com temperatura de %s graus, humidade de %s porcento e vento de %s" % (cidade, descricao, temperatura, humidade, vento)
-        return msg
-    if int(pred) == 2:
+            msg = "A previsão para %s é de %s , com temperatura de %s graus, humidade de %s porcento e vento de %s" % (cidade, descricao, temperatura, humidade, vento)
+
+        except:
+            msg = "Desculpe, Serviço indisponível no momento."
+
+    elif int(pred) == 2:
         data = datetime.now().strftime("%d/%m/%H/%M").split('/')
         msg = "Agora são %s e %s do dia %s do %s." % (data[2],data[3], data[0], data[1])
-        return msg
-    else:
-        return 'Não Entendi'
+
+    return msg
 
 def greeting_response(input_message :str):
     input_message = unidecode.unidecode(input_message)
     input_message = input_message.lower()
     greeting = 'Oi'
-    common_greetings = ['ola','suave','boa noite','boa tarde','bom dia','salve','e ai']
+    common_greetings = ['ola','suave','boa noite','boa tarde','bom dia','salve','e ai', 'tudo bom', 'tudo bem']
     for greet in common_greetings:
         if greet in input_message:
             greeting = greet
@@ -50,31 +54,41 @@ def greeting_response(input_message :str):
 
 def search_response(input_message :str):
     global search_status
+    msg = ""
     if not search_status:
         search_status = True
-        return "O Que você quer que eu procure?"
+        msg = "O Que você quer que eu procure?"
     else:
         if 'Cancel' in input_message:
-            return 'Pesquisa Cancelada'
+            msg = 'Pesquisa Cancelada'
         else:
             wikipedia.set_lang("pt")
-            search = wikipedia.search(input_message)
-
             try:
+                msg_wait = {"message":"Estou pesquisando , aguarde um momento."}
+                try:
+                    requests.post("http://127.0.0.1:5005/tts_speak", json=msg_wait)
+                except:
+                    print("Falha no serviço TTS")
+                    
+                search = wikipedia.search(input_message)
                 search = wikipedia.page(search[0]).content
                 search = search.split('.')[0]
 
                 result = re.sub("[\(\[].*?[\)\]]", "", search)
                 search_status = False
-                return result
+                msg = "Consegui encontrar isso: %s " % (result)
             except:
-                return "Desculpe , Não consegui encontrar nada"
+                msg = "Desculpe , Não consegui encontrar nada"
+    return msg
 
 def objects_detection_response():
-    req = requests.get("http://127.0.0.1:5001/detect_objects")
-    r_json = req.text
-    speech = json.loads(r_json)['message']
-    return speech
+    try:
+        req = requests.get("http://127.0.0.1:5001/detect_objects")
+        r_json = req.text
+        speech = json.loads(r_json)['message']
+        return speech
+    except:
+        return "Desculpe, Serviço indisponivel no momento."
 
 def common_responses(predicted_class :str):
     possible_answers = get_answers_by_class(predicted_class)
@@ -116,9 +130,9 @@ def gen_response(predicted_class :str, input_message :str):
     elif predicted_class == 'saudacao':
         response = greeting_response(input_message)
     elif predicted_class == 'informacao':
-        response = subclass_response(predicted_class,input_message)
+        response = subclass_response('informacao',input_message)
     elif predicted_class == 'sentimento':
-        response = subclass_response(predicted_class,input_message)
+        response = subclass_response('sentimento',input_message)
     elif predicted_class == 'pesquisa':
         response = search_response(input_message)
     elif predicted_class == 'deteccao':

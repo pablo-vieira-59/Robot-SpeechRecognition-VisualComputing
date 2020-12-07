@@ -11,12 +11,12 @@ app = Flask(__name__)
 
 @app.route("/video_feed",methods=["GET","POST"])
 def video_feed():
-	resp = Response(face_detection.get_stream(camera_url + ":8081/"), mimetype='multipart/x-mixed-replace; boundary=frame')
+	resp = Response(face_detection.get_stream(camera_url + ":8081/stream"), mimetype='multipart/x-mixed-replace; boundary=frame')
 	return resp
 
 @app.route("/detect_objects",methods=["GET","POST"])
 def detect_objects():
-	img = ur.request.urlopen(camera_url + "8080/capture")
+	img = ur.urlopen(camera_url + ":8080/capture")
 	img = np.array(bytearray(img.read()),dtype=np.uint8)
 	img = cv2.imdecode(img,-1)
 

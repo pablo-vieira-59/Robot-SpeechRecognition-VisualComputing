@@ -49,6 +49,9 @@ def get_detection_info(layerOutputs, frame):
 
     # Aplica Supressão Non-Maxima , para eliminar detecções fracas e caixas entrelaçadas
     idxs = cv.dnn.NMSBoxes(boxes, confidences, CONFIDENCE, CONFIDENCE)
+    if type(idxs) == tuple:
+        idxs = np.array([])
+
     idxs = idxs.flatten()
 
     return idxs, boxes, confidences, classIDs

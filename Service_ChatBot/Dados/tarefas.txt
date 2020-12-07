@@ -9,3 +9,9 @@ Anote isso para mim;0
 Anote meu número;0
 Anote o que eu vou falar na reunião;0
 Grava isso para mim;0
+Escreve isso;0
+Escreve algo para mim;0
+Escrever;0
+Anotar;0
+Tarefas;0
+Lista;0

@@ -1,5 +1,4 @@
 from flask import Flask, render_template, jsonify
-import json
 import requests
 
 app = Flask(__name__)
@@ -19,13 +18,13 @@ def services_status():
     speech_status = get_status("http://127.0.0.1:5003/speech_status")
     chatbot_status = get_status("http://127.0.0.1:5004/chatbot_status")
     tts_status = get_status("http://127.0.0.1:5005/tts_status")
-    return jsonify({'cam_status':cam_status,'sensor_status':sensor_status,'speech_status':speech_status,'chatbot_status':chatbot_status,'tts_status':tts_status})
+    ans = {'cam_status':cam_status,'sensor_status':sensor_status,'speech_status':speech_status,'chatbot_status':chatbot_status,'tts_status':tts_status}
+    return jsonify(ans)
     
 def get_status(uri :str):
     try:
-        response = requests.get(uri)
-        response = response.text
-        response = json.loads(response)
+        response = requests.get(uri, timeout=0.5)
+        response = response.json()
         status = response['status']
         return status
     except:

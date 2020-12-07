@@ -16,6 +16,7 @@ Espero;2
 Sim;1
 Sim isso mesmo;1
 Ta Certo;1
+Tudo ótimo;1
 
 Não;2
 Errado;2

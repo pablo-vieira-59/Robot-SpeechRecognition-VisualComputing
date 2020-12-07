@@ -18,12 +18,12 @@ def chat():
     phrase = chatbot.gen_response(pred, speech)
 
     ret = {"message":phrase}
-    req = requests.post("http://127.0.0.1:5005/tts_speak", json=(ret))
-
-    if req.ok:
+    try:
+        requests.post("http://127.0.0.1:5005/tts_speak", json=(ret))
         return jsonify(ret)
-
-    return jsonify({"message":"Falha ao Enviar"})
+    except:
+        print("Falha no serviço TTS")
+        return jsonify({"message":"Falha no serviço TTS"})
 
 if __name__ == "__main__":
     app.run(debug=True,port=5004,host="0.0.0.0")

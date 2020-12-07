@@ -9,3 +9,4 @@ Piada de hoje;0
 Qual é a piada de hoje;0
 Piada de hoje;0
 Hoje tem piada;0
+Piada;0

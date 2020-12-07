@@ -1,0 +1,16 @@
+O que voce está vendo;0
+O que voce vê;0
+Esta olhando para onde;0
+O que voce ta olhando;0
+Esta vendo algo;0
+Detecta objetos para mim;0
+Quais os objetos dessa sala;0
+Esta Observando;0
+Observa;0
+Observe;0
+Ta olhando oque;0
+O que voce consegue enxergar;0
+Ta vendo algo;0
+Quais objetos voce consegue identificar;0
+Identifica objetos;0
+Identifica coisas;0

@@ -24,17 +24,20 @@ Meu nome é Jailson, Eu sou uma inteligencia artificial criada para ser um assis
 Eu sou um assistente virtual, feito com arduino e uma camera para eu observar o que está acontecendo, Meu nome é Jailson;informacao;2
 Eu sou o Jailson , sou um robô construido para ser um assistente.;informacao;2
 
-Teste;tempo;0
-
-Teste;tarefas;0
-
-Teste;pesquisa;0
+Resposta;tempo;0
+Resposta;tarefas;0
+Resposta;pesquisa;0
+Resposta;deteccao;0
 
 Ok;sentimento;1
+Isso ai;sentimento;1
+Tudo certo;sentimento;1
+Exato;sentimento;1
+Ta bom;sentimento;1
 
 Tudo bem então;sentimento;2
 Deixa pra proxima então;sentimento;2
 Certo , fica pra proxima;sentimento;2
-Ok;sentimento;2
-Ta bom;sentimento;2
+Ok, se precisar de algo, é só falar;sentimento;2
+Ta bom então;sentimento;2
 
