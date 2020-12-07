@@ -1,3 +1,4 @@
+from pickle import FALSE
 import pandas, joblib, json, requests, unidecode, random
 import numpy as np
 import requests
@@ -53,10 +54,10 @@ def greeting_response(input_message :str):
     return answer
 
 def search_response(input_message :str):
-    global search_status
+    global SEARCH_STATUS
     msg = ""
-    if not search_status:
-        search_status = True
+    if not SEARCH_STATUS:
+        SEARCH_STATUS = True
         msg = "O Que você quer que eu procure?"
     else:
         if 'Cancel' in input_message:
@@ -75,9 +76,10 @@ def search_response(input_message :str):
                 search = search.split('.')[0]
 
                 result = re.sub("[\(\[].*?[\)\]]", "", search)
-                search_status = False
+                SEARCH_STATUS = False
                 msg = "Consegui encontrar isso: %s " % (result)
             except:
+                SEARCH_STATUS = False
                 msg = "Desculpe , Não consegui encontrar nada"
     return msg
 
@@ -95,6 +97,51 @@ def common_responses(predicted_class :str):
     index = random.randint(0, len(possible_answers)-1)
     answer = possible_answers[index]
     return answer
+
+def tasks_responses(input_message :str):
+    global TASK_STATUS
+    global TASK_ID
+    global TASKS
+    global TASKS_PATH
+
+    if not TASK_STATUS:
+        pred,_ = make_prediction(input_message, model_task)
+        pred = int(pred)
+        msg = ""
+        
+        if pred == 1:
+            TASK_STATUS = True
+            TASK_ID = 1
+            return "O que você quer que eu adicione?"
+        elif pred == 2:
+            TASK_STATUS = True
+            TASK_ID = 2
+            return "O que você quer que eu remova?"
+        elif pred == 3:
+            msg = ",".join(TASKS)
+            msg = "Você tem as seguintes tarefas: " + msg
+            return msg
+    else:
+        if not ('Cancel' in input_message):
+            if TASK_ID == 1:
+                TASKS.append(input_message)
+                dataframe = pandas.DataFrame(TASKS, columns=["Tarefas"])
+                dataframe.to_csv(TASKS_PATH, sep=";",columns=["Tarefas"],index=False)
+                TASK_STATUS = False
+                return "%s %s %s" % ("Tarefa :", input_message, ",Foi adicionada.")
+            elif TASK_ID == 2:
+                try:
+                    TASKS.remove(input_message)
+                    dataframe = pandas.DataFrame(TASKS, columns=["Tarefas"])
+                    dataframe.to_csv(TASKS_PATH, sep=";",columns=["Tarefas"],index=False)
+                    TASK_STATUS = False
+                    return "%s %s %s" % ("Tarefa :", input_message, ",Foi removida.")
+                except Exception as e:
+                    print(e)
+                    return "Desculpe , não encontrei essa tarefa para remover. Tente falar de novo , ou use o comando Cancelar para sair."
+        else:
+            TASK_STATUS = False
+            return 'Tarefas Cancelado'
     
 def subclass_response(predicted_class :str,input_message :str):
     predicted_subclass,_ = make_prediction(input_message, model_information)
@@ -116,13 +163,20 @@ def get_answers_by_subclass(predicted_class :str, predicted_subclass :int):
     return possible_answers
 
 def gen_response(predicted_class :str, input_message :str):
+    global SEARCH_STATUS
+    global TASK_STATUS
+    
     response = 'Desculpe , não entendi.'
-
+    
     if input_message == "":
         return response
 
-    if search_status:
+    if SEARCH_STATUS:
         response = search_response(input_message)
+        return response
+
+    if TASK_STATUS:
+        response = tasks_responses(input_message)
         return response
 
     if predicted_class == 'tempo':
@@ -137,21 +191,26 @@ def gen_response(predicted_class :str, input_message :str):
         response = search_response(input_message)
     elif predicted_class == 'deteccao':
         response = objects_detection_response()
+    elif predicted_class == 'tarefas':
+        response = tasks_responses(input_message)
 
     else:
         response = common_responses(predicted_class)
 
     return response
 
-def set_false(var):
-    var = False
-    return var
-
+TASKS_PATH = "Persistente/tasks.txt"
 answers = pandas.read_csv('Dados/Respostas.csv',sep=';')
+TASKS = pandas.read_csv(TASKS_PATH,sep=";",names=['Tarefas'])
+TASKS = list(TASKS["Tarefas"])
+TASKS = TASKS[1:len(TASKS)]
 
 model_common = joblib.load('Modelos/classificador_geral.joblib')
 model_information = joblib.load('Modelos/classificador_informacao.joblib')
 model_weather = joblib.load('Modelos/classificador_tempo.joblib')
+model_task = joblib.load('Modelos/classificador_tarefas.joblib')
 vectorizer = joblib.load('Modelos/vectorizer.joblib')
 
-search_status = False
+SEARCH_STATUS = False
+TASK_STATUS = False
+TASK_ID = 0

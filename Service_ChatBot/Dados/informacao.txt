@@ -27,4 +27,5 @@ Quem te criou;2
 Você anda;2
 Você tem nome;2
 Qual que é seu nome;2
+Olá qual seu nome;2
 Nome;2

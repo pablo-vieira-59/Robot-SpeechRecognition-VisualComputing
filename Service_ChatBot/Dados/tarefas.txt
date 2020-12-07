@@ -1,17 +1,27 @@
-Anota algo pra mim;0
-o que tem pra fazer hoje;0
-Quais as minhas tarefas;0
-Lista de tarefas;0
-Qual minha agenda;0
-Tenho algo para fazer hoje;0
-Tenho algo marcado hoje;0
-Anote isso para mim;0
-Anote meu número;0
-Anote o que eu vou falar na reunião;0
-Grava isso para mim;0
-Escreve isso;0
-Escreve algo para mim;0
-Escrever;0
-Anotar;0
-Tarefas;0
-Lista;0
+Anota algo pra mim;1
+o que tem pra fazer hoje;3
+Quais as minhas tarefas;3
+Lista de tarefas;3
+Qual minha agenda;3
+Tenho algo para fazer hoje;3
+Tenho algo marcado hoje;3
+Anote isso para mim;1
+Anote meu número;1
+Anote o que eu vou falar na reunião;1
+Grava isso para mim;1
+Escreve isso;1
+Escreve algo para mim;1
+Escrever;1
+Esvreve uma tarefa;1
+Anote uma tarefa;1
+Anotar;1
+Tarefas;3
+Lista;3
+Apaga uma tarefa;2
+Remove;2
+Remover;2
+Apagar;2
+Retira;2
+Remove tarefa;2
+Retirar Tarefa;2
+Cancelar Tarefa;2
