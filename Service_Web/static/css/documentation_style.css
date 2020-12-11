@@ -1,0 +1,168 @@
+body{
+    margin: 0px;
+    background-color: white;
+    font-family: 'Abel', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited{
+    color: white;
+}
+
+.float-bar{
+    position: fixed;
+    width: 100%;
+}
+
+.banner{
+    background-color: #132637;
+    padding: 7px;
+    display: flex;
+}
+
+.banner div{
+    padding-left: 30px;
+    width: 100%;
+    color: white;
+    font-size: 30px;
+}
+
+.nav-bar{
+    display: flex;
+    padding-left: 30px;
+    background-color: #132637;
+}
+
+.nav-button{
+    padding: 5px 15px 5px 15px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav-button:hover{
+    background-color: #274d6e;
+}
+
+.nav-button:active{
+    border-width: 0px 0px 5px 0px;
+    border-color: white;
+    border-style: solid;
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+
+.main{
+    display: flex;
+    padding-top: 100px;
+}
+
+.left-side{
+    width: 50%;
+    padding: 2px;
+    width: 50%;
+    height: 100%;
+}
+
+.left-side p{
+    margin-top: 5px;
+    color: #707070;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.right-side{
+    padding: 2px;
+    height: 100%;
+    width: 50%;
+}
+
+.component-box{
+    margin-top: 30px;
+    margin-left: 15%;
+    width: 70%;
+    background-color: white;
+    border-width: 1px;
+    border-color: #707070;
+    border-style: solid;
+    box-shadow: #181110 0px 0px 5px;
+    display: flex;
+    height: 200px;
+}
+
+.black-box{
+    width: 10%;
+    background-color: #181110;
+}
+
+.h2-box{
+    margin-left: 15%;
+    width: 70%;
+    color: #707070;
+}
+
+.h3-box{
+    width: 100%;
+    color: #707070;
+    padding: 5px;
+}
+
+.p-box{
+    padding: 5px;
+    width: 95%;
+    height: 75%;
+    color: black;
+}
+
+.component-text-box{
+    display: block;
+    flex-grow: 1;
+}
+
+.component-text-box p{
+    margin: 0px;
+    font-size: 16px;
+}
+
+.component-text-box h3{
+    font-size: 22px;
+    margin: 0px;
+}
+
+.img-div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.img-box{
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+}
+
+.space-box{
+    height: 100px;
+}
