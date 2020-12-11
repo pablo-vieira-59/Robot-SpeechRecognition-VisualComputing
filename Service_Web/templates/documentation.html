@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="documentation_style.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/documentation_style.css')}}">
+
+
+<html>
+<header>
+    <title>Home</title>
+</header>
+
+<body>
+    <div class="float-bar">
+        <div class="banner">
+            <div>Mr.BotRob</div>
+        </div>
+        <nav class="nav-bar">
+            <div class="nav-button">
+                <a href="{{url_for('main')}}">Home</a>
+            </div>
+            <div class="nav-button">
+                <a href="{{url_for('components')}}">Componentes</a>
+            </div>
+            <div class="nav-button">
+                Imagens
+            </div>
+            <div class="nav-button">
+                Sobre
+            </div>
+        </nav>
+    </div>
+
+    <div class="sidenav">
+        <a href="#">API Câmera</a>
+        <a href="#">API Chatbot</a>
+        <a href="#">API Movimentação</a>
+        <a href="#">API Reconhecimento de Fala</a>
+        <a href="#">API Texto para Áudio</a>
+    </div>
+    
+
+    <div class="main">
+        <div class="api-box">
+            <h1>Api Câmera</h1>
+            <p>Esse serviço é responsável por fazer o reconhecimento de rosto e objetos, 
+            para utilizar-lo é necessário que o robô esteja ligado e conectado à rede local. 
+            Nele temos 3 URLs : o feed de video que é responsável por pegar a imagem da câmera
+            e fazer a detecção de rostos; Detecção de objetos, que usa a imagem da câmera e roda
+            o YOLOv3 para detectar objetos presentes, retornando um texto com a contagem e nome 
+            dos objetos.;O Status do serviço, que retorna o estado do serviço ,se está online ou offline.</p>
+
+            <h2>Porta do serviço:</h2>
+            <p>5001</p>
+
+            <h2>URLS</h2>
+            <h3>Video Feed:</h3>
+            <p>http://127.0.0.1:5001/video_feed</p>
+            <h3>Retorno:</h3>
+            <p>Imagem</p>
+
+            <h3>Detecção de Objetos:</h3>
+            <p>http://127.0.0.1:5001/detect_objects</p>
+            <h3>Retorno:</h3>
+            <p>JSON: {"message":"Texto com objetos identificados"}</p>
+
+            <h3>Estado:</h3>
+            <p>http://127.0.0.1:5001/cam_status</p>
+            <h3>Retorno:</h3>
+            <p>JSON: {"status":True ou False}</p>
+        
+        </div>
+
+        <div class="api-box">
+            <h1>Api Chatbot</h1>
+            <p>Esse serviço é responsável pela inteligencia assistente , ele irá fazer uma classificação 
+            no texto de entrada e retornar uma resposta , dependendo da classe irá executar alguma funcionalidade.
+            Nele temos 2 URLs :  Requerimento de resposta, que é a função principal, fazendo a classificação 
+            e gerando uma resposta para um texto de entrada;O Status do serviço, que retorna o estado do serviço 
+            ,se está online ou offline.</p>
+
+            <h2>Porta do serviço:</h2>
+            <p>5003</p>
+
+            <h2>URLS</h2>
+            <h3>Video Feed:</h3>
+            <p>http://127.0.0.1:5003/chatbot_answer</p>
+            <h3>Requerimento</h3>
+            <p>JSON: {"message":"Texto de entrada"}</p>
+            <h3>Retorno:</h3>
+            <p>JSON: {"message":"Texto gerado pelo chatbot"}</p>
+
+            <h3>Estado:</h3>
+            <p>http://127.0.0.1:5003/chatbot_status</p>
+            <h3>Retorno:</h3>
+            <p>JSON: {"status":True ou False}</p>
+        
+        </div>
+    </div>
+
+</body>
+
+</html>
