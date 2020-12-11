@@ -42,7 +42,7 @@ def train_base_model(data :pd.DataFrame, vectorizer :CountVectorizer):
     x_train = vectorizer.transform(x_train)
     x_train = x_train.toarray()
 
-    model = GaussianNB(var_smoothing=0.01)
+    model = GaussianNB(var_smoothing=0.00001)
     score = cross_val_score(model, x_train, y_train)
     print('Score : %.2f' % (np.mean(score)))
 

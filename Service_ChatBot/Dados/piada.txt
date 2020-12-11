@@ -10,3 +10,9 @@ Qual é a piada de hoje;0
 Piada de hoje;0
 Hoje tem piada;0
 Piada;0
+Diz uma charada;0
+Me conte uma charada;0
+Conte uma charada;0
+Charada;0
+Fala uma charada;0
+Diz uma charada;0

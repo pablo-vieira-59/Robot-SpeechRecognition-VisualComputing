@@ -65,6 +65,7 @@ def search_response(input_message :str):
         else:
             wikipedia.set_lang("pt")
             try:
+                print("Estou pesquisando , aguarde um momento.")
                 msg_wait = {"message":"Estou pesquisando , aguarde um momento."}
                 try:
                     requests.post("http://127.0.0.1:5005/tts_speak", json=msg_wait)
@@ -150,6 +151,12 @@ def subclass_response(predicted_class :str,input_message :str):
     answer = possible_answers[index]
     return answer
 
+def jokes_responses():
+    global JOKES
+    ind = np.random.randint(0, len(JOKES)-1)
+    joke = JOKES['charada'][ind]
+    return joke
+
 def get_answers_by_class(predicted_class :str):
     filter_1 = answers['intent']==predicted_class
     possible_answers = list(answers.where(filter_1).dropna()['speech'])
@@ -193,23 +200,28 @@ def gen_response(predicted_class :str, input_message :str):
         response = objects_detection_response()
     elif predicted_class == 'tarefas':
         response = tasks_responses(input_message)
+    elif predicted_class == 'piada':
+        response = jokes_responses()
 
     else:
         response = common_responses(predicted_class)
 
     return response
 
-TASKS_PATH = "Persistente/tasks.txt"
-answers = pandas.read_csv('Dados/Respostas.csv',sep=';')
+answers = pandas.read_csv("Dados/Respostas.csv",sep=';')
+
+JOKES = pandas.read_csv("Persistente/Lista de Piadas.csv",sep=';')
+
+TASKS_PATH = "Persistente/Lista de Tarefas.txt"
 TASKS = pandas.read_csv(TASKS_PATH,sep=";",names=['Tarefas'])
 TASKS = list(TASKS["Tarefas"])
 TASKS = TASKS[1:len(TASKS)]
 
-model_common = joblib.load('Modelos/classificador_geral.joblib')
-model_information = joblib.load('Modelos/classificador_informacao.joblib')
-model_weather = joblib.load('Modelos/classificador_tempo.joblib')
-model_task = joblib.load('Modelos/classificador_tarefas.joblib')
-vectorizer = joblib.load('Modelos/vectorizer.joblib')
+model_common = joblib.load("Modelos/classificador_geral.joblib")
+model_information = joblib.load("Modelos/classificador_informacao.joblib")
+model_weather = joblib.load("Modelos/classificador_tempo.joblib")
+model_task = joblib.load("Modelos/classificador_tarefas.joblib")
+vectorizer = joblib.load("Modelos/vectorizer.joblib")
 
 SEARCH_STATUS = False
 TASK_STATUS = False

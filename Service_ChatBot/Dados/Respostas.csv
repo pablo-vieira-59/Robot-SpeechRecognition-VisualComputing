@@ -5,14 +5,6 @@ tudo bom?;saudacao;0
 posso te ajudar em algo?;saudacao;0
 tem algo que posso fazer por você?;saudacao;0
 
-Por que a mulher não pode ser eletricista? Porque ela leva 9 meses para dar a luz!;piada;0
-O que fala o livro de Matemática para o livro de História? Não me venha com história que eu já estou cheio de problema!;piada;0
-Porque o anão não pode lutar boxe? porque ele dá golpe baixo.;piada;0
-Qual o cachorro que é professor? É o cãolecionador.;piada;0
-Qual o cachorro do fazendeiro? É o cãopeão.;piada;0
-Qual o carrocho que adivinha o futuro? É o cãoguru.;piada;0
-Qual é a diferença entre uma bicicleta e uma privada? A bicicleta você senta pra correr, e a privada você corre pra sentar!;piada;0
-
 Eu posso informar as horas , dizer quem eu sou , dizer qual o tempo previsto , contar piadas e outras coisas ai.;informacao;1
 Eu posso dizer quem eu sou , contar piadas ,dizer qual o tempo previsto , informar as horas e outras coisas ai;informacao;1
 Quer escutar algumas piadas? eu posso fazer isso , alem de outras coisas.;informacao;1
@@ -23,11 +15,7 @@ Posso te dar a previsão do tempo! Basta pedir;informacao;1
 Meu nome é Jailson, Eu sou uma inteligencia artificial criada para ser um assistente.;informacao;2
 Eu sou um assistente virtual, feito com arduino e uma camera para eu observar o que está acontecendo, Meu nome é Jailson;informacao;2
 Eu sou o Jailson , sou um robô construido para ser um assistente.;informacao;2
-
-Resposta;tempo;0
-Resposta;tarefas;0
-Resposta;pesquisa;0
-Resposta;deteccao;0
+Eu sou o robô Jailson, Estou ao seu dispor;2
 
 Ok;sentimento;1
 Isso ai;sentimento;1
@@ -41,5 +29,9 @@ Certo , fica pra proxima;sentimento;2
 Ok, se precisar de algo, é só falar;sentimento;2
 Ta bom então;sentimento;2
 
-
-
+Resposta;tempo;0
+Resposta;tarefas;0
+Resposta;pesquisa;0
+Resposta;deteccao;0
+Resposta;musica;0
+Resposta;piada;0

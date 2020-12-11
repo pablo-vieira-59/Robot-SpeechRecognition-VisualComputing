@@ -1,10 +1,4 @@
 Anota algo pra mim;1
-o que tem pra fazer hoje;3
-Quais as minhas tarefas;3
-Lista de tarefas;3
-Qual minha agenda;3
-Tenho algo para fazer hoje;3
-Tenho algo marcado hoje;3
 Anote isso para mim;1
 Anote meu número;1
 Anote o que eu vou falar na reunião;1
@@ -15,8 +9,7 @@ Escrever;1
 Esvreve uma tarefa;1
 Anote uma tarefa;1
 Anotar;1
-Tarefas;3
-Lista;3
+
 Apaga uma tarefa;2
 Remove;2
 Remover;2
@@ -25,3 +18,12 @@ Retira;2
 Remove tarefa;2
 Retirar Tarefa;2
 Cancelar Tarefa;2
+
+Tarefas;3
+Lista;3
+o que tem pra fazer hoje;3
+Quais as minhas tarefas;3
+Lista de tarefas;3
+Qual minha agenda;3
+Tenho algo para fazer hoje;3
+Tenho algo marcado hoje;3

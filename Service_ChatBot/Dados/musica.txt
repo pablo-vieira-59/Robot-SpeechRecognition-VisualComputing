@@ -1,0 +1,12 @@
+Quero escutar musica;0
+Ouvir musica;0
+Musica;0
+Tocar musica;0
+Escutar Musica;0
+Playlist de Musica;0
+Tocar som;0
+Toque uma musica;0
+Abra aplicativo de musica;0
+Escutar som;0
+Ouvir Som;0
+Abrir Musica;0

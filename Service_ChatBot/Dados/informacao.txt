@@ -15,6 +15,9 @@ Qual o motivo da sua existencia;1
 Pode me ajudar;1
 Me de suas informações;1
 
+qual o nome;2
+qual que é seu nome;2
+Diga seu nome;2
 Quem é você;2
 o que é você;2
 Você é um robô;2
