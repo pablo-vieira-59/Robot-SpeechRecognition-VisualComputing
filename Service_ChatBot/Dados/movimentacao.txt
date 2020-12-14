@@ -1,0 +1,20 @@
+sistema de movimentação;0
+locomoção;0
+movimentação;0
+va para algum lugar;0
+se mova;0
+ande para alguma lugar;0
+se mexa;0
+sistema de locomoção;0
+usar motores;0
+ativar movimentação;0
+ativar motores;0
+ativar motor;0
+motor;0
+motores;0
+vai para a frente;0
+vire para esquerda;0
+vire para direita;0
+ande para tras;0
+ande para frente;0
+vai para frente;0

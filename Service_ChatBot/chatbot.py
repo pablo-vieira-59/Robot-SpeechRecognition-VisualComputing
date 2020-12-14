@@ -1,11 +1,6 @@
-from pickle import FALSE
-import pandas, joblib, json, requests, unidecode, random
+import pandas, joblib, json, requests, unidecode, random, requests, wikipedia, re, os
 import numpy as np
-import requests
 from datetime import datetime
-
-import wikipedia
-import re
 
 def make_prediction(text :str, model):
     text = vectorizer.transform([text])
@@ -74,7 +69,8 @@ def search_response(input_message :str):
                     
                 search = wikipedia.search(input_message)
                 search = wikipedia.page(search[0]).content
-                search = search.split('.')[0]
+                search_phrases = search.split('.')
+                search = search_phrases[0] + search_phrases[1]
 
                 result = re.sub("[\(\[].*?[\)\]]", "", search)
                 SEARCH_STATUS = False
@@ -123,7 +119,7 @@ def tasks_responses(input_message :str):
             msg = "Você tem as seguintes tarefas: " + msg
             return msg
     else:
-        if not ('Cancel' in input_message):
+        if not ('cancel' in input_message):
             if TASK_ID == 1:
                 TASKS.append(input_message)
                 dataframe = pandas.DataFrame(TASKS, columns=["Tarefas"])
@@ -157,6 +153,46 @@ def jokes_responses():
     joke = JOKES['charada'][ind]
     return joke
 
+def music_response():
+    try:
+        os.system("Persistente\\Music_Shortcut.lnk")
+        return "Certo, estou abrindo o aplicativo de musica."
+    except:
+        return "Desculpe, não consegui executar o aplicativo de musica."
+
+def movement_response(input_message):
+    global MOVEMENT_STATUS
+
+    if not MOVEMENT_STATUS:
+        MOVEMENT_STATUS = True
+        return "Diga para onde devo ir"
+
+    else:
+        ans = "Desculpe, comando inválido. Se quiser sair do sistema de movimentação use o comando cancelar."
+
+        if "cancel" in input_message:
+            MOVEMENT_STATUS = False
+            return "Saindo do sistema de movimentação"
+
+        else:
+            try:
+                if "esquerda" in input_message:
+                    requests.post('http://127.0.0.1:5002/send_command', json={"command": 'right'})
+                    ans = "Comando enviado."
+                elif "frente" in input_message:
+                    requests.post('http://127.0.0.1:5002/send_command', json={"command": 'forward'})
+                    ans = "Comando enviado."
+                elif "trás" in input_message:
+                    requests.post('http://127.0.0.1:5002/send_command', json={"command": 'backward'})
+                    ans = "Comando enviado."
+                elif "direita" in input_message:
+                    requests.post('http://127.0.0.1:5002/send_command', json={"command": 'left'})
+                    ans = "Comando enviado." 
+            except:
+                ans = "Desculpe, não consegui enviar o comando."
+        
+        return ans
+
 def get_answers_by_class(predicted_class :str):
     filter_1 = answers['intent']==predicted_class
     possible_answers = list(answers.where(filter_1).dropna()['speech'])
@@ -164,7 +200,7 @@ def get_answers_by_class(predicted_class :str):
 
 def get_answers_by_subclass(predicted_class :str, predicted_subclass :int):
     filter_1 = answers['intent'] == predicted_class
-    filter_2 = answers['subclass'].astype(int) == predicted_subclass
+    filter_2 = answers['subclass'] == predicted_subclass
     possible_answers = answers.where(filter_1).dropna()
     possible_answers = list(possible_answers.where(filter_2).dropna()['speech'])
     return possible_answers
@@ -172,7 +208,8 @@ def get_answers_by_subclass(predicted_class :str, predicted_subclass :int):
 def gen_response(predicted_class :str, input_message :str):
     global SEARCH_STATUS
     global TASK_STATUS
-    
+    global MOVEMENT_STATUS
+
     response = 'Desculpe , não entendi.'
     
     if input_message == "":
@@ -184,6 +221,10 @@ def gen_response(predicted_class :str, input_message :str):
 
     if TASK_STATUS:
         response = tasks_responses(input_message)
+        return response
+
+    if MOVEMENT_STATUS:
+        response = movement_response(input_message)
         return response
 
     if predicted_class == 'tempo':
@@ -202,6 +243,10 @@ def gen_response(predicted_class :str, input_message :str):
         response = tasks_responses(input_message)
     elif predicted_class == 'piada':
         response = jokes_responses()
+    elif predicted_class == 'musica':
+        response = music_response()
+    elif predicted_class == 'movimentacao':
+        response = movement_response(input_message)
 
     else:
         response = common_responses(predicted_class)
@@ -225,4 +270,5 @@ vectorizer = joblib.load("Modelos/vectorizer.joblib")
 
 SEARCH_STATUS = False
 TASK_STATUS = False
+MOVEMENT_STATUS = False
 TASK_ID = 0

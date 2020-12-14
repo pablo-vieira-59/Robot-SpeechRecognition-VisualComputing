@@ -19,7 +19,7 @@
 #define motorPower 255
 
 // Definindo delayTime de Espera entre Estados
-int delayTime = 100;
+int delayTime = 30;
 
 // Definindo estado do requerimento da comunicação serial
 String req = "";
@@ -47,36 +47,46 @@ void loop() {
     req = getMessage();
 
     if (req == "w") {
-      motorFoward();
-      delay(delayTime);
-      motorStop();
+      controlMotors(255,0,255,0,25);
     }
     
     if (req == "a") {
-      motorLeft();
-      delay(delayTime);
-      motorStop();
+      controlMotors(255,0,0,255,25);
     }
 
     if (req == "s") {
-      motorBackward();
-      delay(delayTime);
-      motorStop();
+      controlMotors(0,255,0,255,25);
     }
     
     if (req == "d") {
-      motorRight();
-      delay(delayTime);
-      motorStop();
+      controlMotors(0,255,255,0,25);
     }
     
-    if (req == "r") {
+    if (req == "sensor") {
       float sensor = sensorDistance();
-      Serial.println(sensor);
+      String str = String(sensor);
+      clearSerial();
+      Serial.println(str);
     }
 
     if (req == "l"){
       ledControl();
+    }
+
+    if (req == "backward"){
+      controlMotors(0,255,0,255,800);
+    }
+
+    if (req == "forward"){
+      controlMotors(255,0,255,0,800);
+    }
+
+    if (req == "left"){
+      controlMotors(255,0,0,255,300);
+    }
+
+    if (req == "right"){
+      controlMotors(0,255,255,0,300);
     }
   }
 }
@@ -90,32 +100,14 @@ double sensorDistance(){
   return dist;
 }
 
-void motorFoward() {
-  analogWrite(motor_r1, motorPower);
-  digitalWrite(motor_r2, LOW);
-  analogWrite(motor_l1, motorPower);
-  digitalWrite(motor_l2, LOW);
-}
+void controlMotors(int powerA, int powerB, int powerC, int powerD, int time){
+  analogWrite(motor_r1, powerA);
+  digitalWrite(motor_r2, powerB);
 
-void motorBackward() {
-  digitalWrite(motor_r1, LOW);
-  analogWrite(motor_r2, motorPower);
-  digitalWrite(motor_l1, LOW);
-  analogWrite(motor_l2, motorPower);
-}
-
-void motorRight() {
-  digitalWrite(motor_r1, LOW);
-  analogWrite(motor_r2, motorPower);
-  analogWrite(motor_l1, motorPower);
-  digitalWrite(motor_l2, LOW);
-}
-
-void motorLeft() {
-  analogWrite(motor_r1, motorPower);
-  digitalWrite(motor_r2, LOW);
-  digitalWrite(motor_l1, LOW);
-  analogWrite(motor_l2, motorPower);
+  analogWrite(motor_l1, powerC);
+  digitalWrite(motor_l2, powerD);
+  delay(time);
+  motorStop();
 }
 
 void motorStop() {
@@ -131,13 +123,6 @@ bool ledControl(){
   digitalWrite(led_pin, LOW);
 }
 
-void clearSerial(){
-  while(Serial.available()>0){
-    Serial.read();
-    delay(15);
-  }
-}
-
 String getMessage(){
   char currentByte = "";
   String message = "";
@@ -149,4 +134,11 @@ String getMessage(){
     delay(15);
   }
   return message;
+}
+
+void clearSerial(){
+  while(Serial.available()>0){
+    Serial.read();
+  }
+  delay(15);
 }

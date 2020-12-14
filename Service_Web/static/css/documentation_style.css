@@ -6,9 +6,14 @@ body{
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 a:visited{
+    color: white;
+}
+
+a:checked{
     color: white;
 }
 
@@ -54,115 +59,92 @@ a:visited{
 }
 
 .sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 160px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    height: 100%; 
+    width: 240px; 
+    position: fixed; 
+    z-index: 1;
+    top: 85px; 
     left: 0;
-    background-color: #111; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
+    background-color: #0c1822; 
+    overflow-x: hidden;
     padding-top: 20px;
   }
-  
-  /* The navigation menu links */
-  .sidenav a {
+
+.sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 18px;
+    color: #ffffff;
     display: block;
-  }
+}
+
+.sidenav a:hover{
+    background-color: #274d6e;
+}
+
+.sidenav h3{
+    color: white;
+    font-size: 20px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 100;
+    background-color: #122433;
+    margin-top: 30px;
+}
 
 .main{
-    display: flex;
-    padding-top: 100px;
+    margin-left: 240px;
+    padding: 100px 20% 100px 10%;
 }
 
-.left-side{
-    width: 50%;
-    padding: 2px;
-    width: 50%;
-    height: 100%;
-}
-
-.left-side p{
-    margin-top: 5px;
-    color: #707070;
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.right-side{
-    padding: 2px;
-    height: 100%;
-    width: 50%;
-}
-
-.component-box{
-    margin-top: 30px;
-    margin-left: 15%;
-    width: 70%;
-    background-color: white;
-    border-width: 1px;
-    border-color: #707070;
+.api-box{
+    width: 100%;
+    padding: 30px;
+    background-color: #ffffff;
+    border-color: #c0c0c0;
     border-style: solid;
-    box-shadow: #181110 0px 0px 5px;
-    display: flex;
-    height: 200px;
+    border-width: 1px;
+    box-shadow: #b1b1b1 1px 1px 5px;
+    margin-top: 15px;
 }
 
-.black-box{
-    width: 10%;
-    background-color: #181110;
-}
-
-.h2-box{
-    margin-left: 15%;
-    width: 70%;
-    color: #707070;
-}
-
-.h3-box{
-    width: 100%;
-    color: #707070;
+.api-url{
+    margin-top: 7px;
     padding: 5px;
+    background-color: #dddbdb;
+    border-color: #c0c0c0;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: #b1b1b1 1px 1px 5px;
+    width: 40%;
 }
 
-.p-box{
-    padding: 5px;
-    width: 95%;
-    height: 75%;
-    color: black;
-}
-
-.component-text-box{
+h3{
     display: block;
-    flex-grow: 1;
-}
-
-.component-text-box p{
-    margin: 0px;
     font-size: 16px;
+    margin: 0;
+    font-weight: bold;
 }
 
-.component-text-box h3{
-    font-size: 22px;
-    margin: 0px;
+p {
+    display: block;
+    font-size: 16px;
+    margin: 2px;
 }
 
-.img-div{
+.api-sub-box{
     display: flex;
-    width: 100%;
+}
+
+.api-sub-box-side{
+    display: inline;
+    width: 50%;
+    margin-left: 0%;
     justify-content: center;
 }
 
-.img-box{
-    margin-top: 20px;
-    width: 200px;
-    height: 200px;
-}
-
-.space-box{
-    height: 100px;
+.api-sub-box-side img{
+    padding: 10px;
+    width: 100%;
 }

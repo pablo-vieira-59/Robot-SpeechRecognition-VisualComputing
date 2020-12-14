@@ -23,7 +23,7 @@ def get_info():
     if ans is not None:
         return jsonify({'answer': ans})
     else:
-        return jsonify({'answer': 'None'})
+        return jsonify({'answer': 'Falha ao comunicar com Servidor UDP'})
 
 @app.route("/sensor_status",methods=["GET","POST"])    
 def get_status():
@@ -31,16 +31,17 @@ def get_status():
 
 def check_sensor():
     while True:
-        udp_client.send_message('r')
-        ans = udp_client.receive_message(timeout=1)
-        print(ans)
-        if ans is not None:
-            ans = float(ans)
-            if ans < 10:
-                try:
-                    requests.get("http://127.0.0.1:5003/speech_data")
-                except:
-                    print('Falha no serviço Speech')
+        try:
+            udp_client.send_message('sensor')
+            ans = udp_client.receive_message(timeout=1)
+            print(ans)
+            if ans is not None:
+                ans = float(ans)
+                if ans < 10:
+                        requests.get("http://127.0.0.1:5003/speech_data")
+        except:
+            print('Falha no serviço Speech')
+
         time.sleep(.5)
 
 if __name__ == "__main__":

@@ -1,0 +1,6 @@
+start "Arduino" "Arduino.lnk"
+start "TTS" "TTS.lnk"
+start "Chatbot" "Chatbot.lnk"
+start "Fala" "Fala.lnk"
+start "Camera" "Camera.lnk"
+start "Web" "Web.lnk"

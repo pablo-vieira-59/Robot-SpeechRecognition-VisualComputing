@@ -1,9 +1,6 @@
-import os, joblib, json, requests, pyttsx3, pythoncom, multiprocessing, time
-import pandas as pd
-import numpy as np
-
+import json, requests, pyttsx3, pythoncom, multiprocessing
 from flask_cors import CORS
-from flask import Flask, make_response, render_template, Request, jsonify
+from flask import Flask, request, jsonify
 
 tts = pyttsx3.init()
 tts_voice = tts.getProperty('voices')
@@ -20,8 +17,9 @@ app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 def speak(text):
-    tts_voice = tts.getProperty('voices')
-    tts.setProperty('voice',br_voice_id)
+    global tts
+    #tts_voice = tts.getProperty('voices')
+    #tts.setProperty('voice',br_voice_id)
     tts.say(text)
     tts.runAndWait()
     return True
@@ -30,19 +28,14 @@ def start_speech(ans):
     p = multiprocessing.Process(target=speak, args=(ans,))
     p.start()
 
-def get_speech():
-    request = requests.get("http://127.0.0.1:5004/chatbot_answer")
-    r_json = request.text
-    speech = json.loads(r_json)['speech']
-    return speech
-
 @app.route("/tts_status",methods=["GET","POST"])    
 def get_status():
     return jsonify({'status':True})
 
-@app.route("/tts_answer",methods=["GET","POST"])    
+@app.route("/tts_speak",methods=["GET","POST"])    
 def chat():
-    speech = get_speech()
+    content = request.json
+    speech = content['message']
     start_speech(speech)
     return jsonify({'speech':speech})
 

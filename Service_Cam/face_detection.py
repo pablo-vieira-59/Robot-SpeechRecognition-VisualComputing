@@ -44,15 +44,15 @@ def detect_faces(image, net, min_con, control):
 
             if control:
                 # Controlando Robo
-                deadzone = 20
+                deadzone = 40
                 command = ""
                 
                 if center_detect_x > center_img_x + deadzone:
                     # Vira para Esquerda
-                    command = "a"
+                    command = "d"
                 if center_detect_x < center_img_x - deadzone:
                     # Vira para Direita
-                    command = "d"
+                    command = "a"
 
                 if command != "":
                     try:

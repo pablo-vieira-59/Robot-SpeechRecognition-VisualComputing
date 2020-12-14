@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="images_style.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/images_style.css')}}">
+
+
+<html>
+<header>
+    <title>Home</title>
+</header>
+
+<body>
+    <div class="float-bar">
+        <div class="banner">
+            <div>Assistente Virtual</div>
+        </div>
+        <nav class="nav-bar">
+            <div class="nav-button">
+                <a href="{{url_for('main')}}">Home</a>
+            </div>
+            <div class="nav-button">
+                <a href="{{url_for('components')}}">Componentes</a>
+            </div>
+            <div class="nav-button">
+                <a href="{{url_for('images')}}">Imagens</a>
+            </div>
+            <div class="nav-button">
+                <a href="{{url_for('documentation')}}">Documentação</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="main">
+        <div class="gallery">
+            <a target="_blank" href="{{url_for('static', filename='img/4.png')}}">
+              <img src="{{url_for('static', filename='img/4.png')}}" alt="Cinque Terre" width="800" height="600">
+            </a>
+            <div class="desc">Add a description of the image here</div>
+          </div>
+          
+          <div class="gallery">
+            <a target="_blank" href="{{url_for('static', filename='img/5.jpg')}}">
+              <img src="{{url_for('static', filename='img/5.jpg')}}" alt="Forest" width="800" height="600">
+            </a>
+            <div class="desc">Add a description of the image here</div>
+          </div>
+          
+          <div class="gallery">
+            <a target="_blank" href="{{url_for('static', filename='img/6.jpg')}}">
+              <img src="{{url_for('static', filename='img/6.jpg')}}" alt="Northern Lights" width="800" height="600">
+            </a>
+            <div class="desc">Add a description of the image here</div>
+          </div>
+          
+          <div class="gallery">
+            <a target="_blank" href="{{url_for('static', filename='img/7.jpg')}}">
+              <img src="{{url_for('static', filename='img/7.jpg')}}" alt="Mountains" width="800" height="600">
+            </a>
+            <div class="desc">Add a description of the image here</div>
+          </div>
+
+          <div class="gallery">
+            <a target="_blank" href="{{url_for('static', filename='img/8.jpg')}}">
+              <img src="{{url_for('static', filename='img/8.jpg')}}" alt="Mountains" width="800" height="600">
+            </a>
+            <div class="desc">Add a description of the image here</div>
+          </div>
+
+          <div class="gallery">
+            <a target="_blank" href="{{url_for('static', filename='img/A.png')}}">
+              <img src="{{url_for('static', filename='img/A.png')}}" alt="Mountains" width="800" height="600">
+            </a>
+            <div class="desc">Add a description of the image here</div>
+          </div>
+    </div>
+
+</body>
+
+</html>

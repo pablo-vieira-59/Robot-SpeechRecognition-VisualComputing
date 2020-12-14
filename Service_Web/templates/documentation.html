@@ -13,7 +13,7 @@
 <body>
     <div class="float-bar">
         <div class="banner">
-            <div>Mr.BotRob</div>
+            <div>Assistente Virtual</div>
         </div>
         <nav class="nav-bar">
             <div class="nav-button">
@@ -23,79 +23,321 @@
                 <a href="{{url_for('components')}}">Componentes</a>
             </div>
             <div class="nav-button">
-                Imagens
+                <a href="{{url_for('images')}}">Imagens</a>
             </div>
             <div class="nav-button">
-                Sobre
+                <a href="{{url_for('documentation')}}">Documentação</a>
             </div>
         </nav>
     </div>
 
     <div class="sidenav">
-        <a href="#">API Câmera</a>
-        <a href="#">API Chatbot</a>
-        <a href="#">API Movimentação</a>
-        <a href="#">API Reconhecimento de Fala</a>
-        <a href="#">API Texto para Áudio</a>
+        <h3>Serviços :</h3>
+        <a href="#camera">API Câmera</a>
+        <a href="#chatbot">API Chatbot</a>
+        <a href="#arduino">API Arduino</a>
+        <a href="#speech">API Reconhecimento de Fala</a>
+        <a href="#tts">API Texto para Áudio</a>
+        <h3>Robótica :</h3>
+        <a href="#esp-config">Configurando IDE-ESP32-Cam</a>
+        <a href="#esp-wifi">Configurando Wifi</a>
+        <a href="#arduino-config">Conexões do Arduino</a>
     </div>
     
 
     <div class="main">
-        <div class="api-box">
-            <h1>Api Câmera</h1>
+        <div class="api-box" id="camera">
+            <h1>API Câmera</h1>
             <p>Esse serviço é responsável por fazer o reconhecimento de rosto e objetos, 
             para utilizar-lo é necessário que o robô esteja ligado e conectado à rede local. 
-            Nele temos 3 URLs : o feed de video que é responsável por pegar a imagem da câmera
-            e fazer a detecção de rostos; Detecção de objetos, que usa a imagem da câmera e roda
-            o YOLOv3 para detectar objetos presentes, retornando um texto com a contagem e nome 
-            dos objetos.;O Status do serviço, que retorna o estado do serviço ,se está online ou offline.</p>
+            Nele temos 3 URLs : </p>
+
+            <ul>
+                <li>Video Feed</li>
+                <li>Detecção de objetos</li>
+                <li>Estado</li>
+            </ul>
+
+            <p>
+                o feed de video que é responsável por pegar a imagem da câmera
+                e fazer a detecção de rostos; Detecção de objetos, que usa a imagem da câmera e roda
+                o YOLOv3 para detectar objetos presentes, retornando um texto com a contagem e nome 
+                dos objetos.;O Status do serviço, que retorna o estado do serviço ,se está online ou offline.
+            </p>
 
             <h2>Porta do serviço:</h2>
             <p>5001</p>
 
-            <h2>URLS</h2>
-            <h3>Video Feed:</h3>
-            <p>http://127.0.0.1:5001/video_feed</p>
-            <h3>Retorno:</h3>
-            <p>Imagem</p>
+            <h2>URLS :</h2>
 
-            <h3>Detecção de Objetos:</h3>
-            <p>http://127.0.0.1:5001/detect_objects</p>
-            <h3>Retorno:</h3>
-            <p>JSON: {"message":"Texto com objetos identificados"}</p>
+            <div class="api-url">
+                <h3>Video Feed:</h3>
+                <p>http://127.0.0.1:5001/video_feed</p>
+                <h3>Retorno: - GET</h3>
+                <p>Imagem</p>
+            </div>
 
-            <h3>Estado:</h3>
-            <p>http://127.0.0.1:5001/cam_status</p>
-            <h3>Retorno:</h3>
-            <p>JSON: {"status":True ou False}</p>
-        
+            <div class="api-url">
+                <h3>Detecção de Objetos:</h3>
+                <p>http://127.0.0.1:5001/detect_objects</p>
+                <h3>Retorno: - GET</h3>
+                <p>JSON: {"message":"Texto com objetos identificados"}</p>
+            </div>
+
+            <div class="api-url">
+                <h3>Estado:</h3>
+                <p>http://127.0.0.1:5001/cam_status</p>
+                <h3>Retorno: - GET</h3>
+                <p>JSON: {"status":True ou False}</p>
+            </div>
+
         </div>
 
-        <div class="api-box">
-            <h1>Api Chatbot</h1>
+        <div class="api-box" id="chatbot">
+            <h1>API Chatbot</h1>
             <p>Esse serviço é responsável pela inteligencia assistente , ele irá fazer uma classificação 
             no texto de entrada e retornar uma resposta , dependendo da classe irá executar alguma funcionalidade.
-            Nele temos 2 URLs :  Requerimento de resposta, que é a função principal, fazendo a classificação 
-            e gerando uma resposta para um texto de entrada;O Status do serviço, que retorna o estado do serviço 
-            ,se está online ou offline.</p>
+            Nele temos 2 URLs :  </p>
+
+            <ul>
+                <li>Resposta do Chatbot</li>
+                <li>Estado</li>
+            </ul>
+
+            <p>
+                Requerimento de resposta, que é a função principal, fazendo a classificação 
+                e gerando uma resposta para um texto de entrada;O Status do serviço, que retorna o estado do serviço 
+                ,se está online ou offline.
+            </p>
 
             <h2>Porta do serviço:</h2>
             <p>5003</p>
 
-            <h2>URLS</h2>
-            <h3>Video Feed:</h3>
-            <p>http://127.0.0.1:5003/chatbot_answer</p>
-            <h3>Requerimento</h3>
-            <p>JSON: {"message":"Texto de entrada"}</p>
-            <h3>Retorno:</h3>
-            <p>JSON: {"message":"Texto gerado pelo chatbot"}</p>
+            <h2>URLS :</h2>
 
-            <h3>Estado:</h3>
-            <p>http://127.0.0.1:5003/chatbot_status</p>
-            <h3>Retorno:</h3>
-            <p>JSON: {"status":True ou False}</p>
-        
+            <div class="api-url">
+                <h3>Resposta do Chatbot:</h3>
+                <p>http://127.0.0.1:5003/chatbot_answer</p>
+                <h3>Requerimento: - POST</h3>
+                <p>JSON: {"message":"Texto de entrada"}</p>
+                <h3>Retorno: - GET</h3>
+                <p>JSON: {"message":"Texto gerado pelo chatbot"}</p>
+            </div>
+
+            <div class="api-url">
+                <h3>Estado:</h3>
+                <p>http://127.0.0.1:5003/chatbot_status</p>
+                <h3>Retorno:</h3>
+                <p>JSON: {"status":True ou False}</p>
+            </div>
         </div>
+
+        <div class="api-box" id="arduino">
+            <h1>API Arduino</h1>
+            <p>Esse serviço é responsável pela comunicação com o arduino, ele irá utilizar um servidor UDP para fazer 
+            a comunicação com o ESP32 e então o arduino.Com certos comandos enviados podemos fazer a movimentação e pegar informações dos sensores.
+            Nele temos 3 URLs :</p>
+
+            <ul>
+                <li>Enviar comando</li>
+                <li>Receber informação</li>
+                <li>Estado</li>
+            </ul>
+
+            <p>
+                Enviar comando faz a comunicação com arduino , enviando um pacote udp com o comando a ser executado.
+                ;Receber informação envia um comando para o arduino , porém espera uma resposta dele e a retorna.
+                ;O Status do serviço, que retorna o estado do serviço, se está online ou offline.
+            </p>
+
+            <h2>Portas do serviço:</h2>
+            <p>WEB: 5002</p>
+            <p>UDP: 5900</p>
+
+            <h2>URLS :</h2>
+
+            <div class="api-url">
+                <h3>Enviar Comando:</h3>
+                <p>http://127.0.0.1:5002/send_command</p>
+                <h3>Requerimento: - POST</h3>
+                <p>JSON: {"command":"Comando a ser enviado"}</p>
+            </div>
+
+            <div class="api-url">
+                <h3>Enviar Comando:</h3>
+                <p>http://127.0.0.1:5002/get_info</p>
+                <h3>Requerimento: - POST</h3>
+                <p>JSON: {"command":"Comando a ser enviado"}</p>
+                <h3>Retorno: - GET</h3>
+                <p>JSON: {"anwswer":"Resposta enviada pelo Arduino"}</p>
+            </div>
+
+            <div class="api-url">
+                <h3>Estado:</h3>
+                <p>http://127.0.0.1:5002/sensor_status</p>
+                <h3>Retorno:</h3>
+                <p>JSON: {"status":True ou False}</p>
+            </div>
+
+            <h2>Comandos Registrados :</h2>
+
+            <div class="api-url">
+                <h3>Comando: -> Função : -> Duração:</h3>
+                <p>"w" -> Mover robô para frente. -> 50ms</p>
+                <p>"a" -> Mover robô para esquerda. -> 50ms</p>
+                <p>"s" -> Mover robô para trás. -> 50ms</p>
+                <p>"d" -> Mover robô para direita. -> 50ms</p>
+                <p>"foward" -> Mover robô para direita. -> 1000ms</p>
+                <p>"left" -> Mover robô para esquerda. -> 1000ms</p>
+                <p>"backward" -> Mover robô para trás. -> 1000ms</p>
+                <p>"right" -> Mover robô para direita. -> 1000ms</p>
+                <p>"r" -> Pegar distancia do sensor. -> 0ms</p>
+            </div>
+
+        </div>
+
+        <div class="api-box" id="speech">
+            <h1>API Reconhecimento de Fala</h1>
+            <p>Esse serviço é responsável por fazer o reconhecimento de fala, transformando o audio captado pelo microfone em texto. Ele utiliza os serviços da Google 
+            para fazer o reconhecimento, então é necessário conexão com a internet. Nele temos 2 URLs :</p>
+
+            <ul>
+                <li>Reconhecer Audio</li>
+                <li>Estado</li>
+            </ul>
+
+            <p>
+                Reconher Áudio  utiliza o microfone do dispositivo para gravar um audio, então o 
+                envia para o serviço da Google fazer o reconhecimento e então retorna o texto que foi reconhecido.
+                ;O Status do serviço, que retorna o estado do serviço, se está online ou offline.
+            </p>
+
+            <h2>Portas do serviço:</h2>
+            <p>WEB: 5004</p>
+
+            <h2>URLS :</h2>
+
+            <div class="api-url">
+                <h3>Enviar Comando:</h3>
+                <p>http://127.0.0.1:5004/speech_data</p>
+                <h3>Retorno: - GET</h3>
+                <p>JSON: {"message":"Texto do audio reconhecido."}</p>
+            </div>
+
+            <div class="api-url">
+                <h3>Estado:</h3>
+                <p>http://127.0.0.1:5004/speech_status</p>
+                <h3>Retorno:</h3>
+                <p>JSON: {"status":True ou False}</p>
+            </div>
+
+
+        </div>
+
+        <div class="api-box" id="tts">
+            <h1>API Texto para Audio</h1>
+            <p>Esse serviço é responsável por transformar texto em áudio. Ele utiliza os serviços da Google ou o T.T.S 
+            do próprio sistema operacional para gerar o audio , então se for utilizado o serviço da Google é necessário 
+            conexão com a internet. Nele temos 2 URLs :</p>
+
+            <ul>
+                <li>Transformar texto em audio</li>
+                <li>Estado</li>
+            </ul>
+
+            <h2>Portas do serviço:</h2>
+            <p>WEB: 5005</p>
+
+            <h2>URLS :</h2>
+
+            <div class="api-url">
+                <h3>Enviar Comando:</h3>
+                <p>http://127.0.0.1:5005/tts_speak</p>
+                <h3>Requerimento: - POST</h3>
+                <p>JSON: {"message":"Texto de entrada"}</p>
+                <h3>Retorno: - GET</h3>
+                <p>JSON: {"message":"Texto do audio gerado."}</p>
+            </div>
+
+            <div class="api-url">
+                <h3>Estado:</h3>
+                <p>http://127.0.0.1:5005/tts_status</p>
+                <h3>Retorno:</h3>
+                <p>JSON: {"status":True ou False}</p>
+            </div>
+        </div>
+
+        <div class="api-box" id="esp-config">
+            <h1>Configurando IDE para ESP32-Cam</h1>
+            <div class="api-sub-box">
+                <div class="api-sub-box-side">
+                    <p>
+                        Para configurar a IDE do arduino para que seja possivel enviar o código para a ESP32-Cam é preciso realizar os seguintes passos :
+                    </p>
+                    <ul>
+                        <li> Abrir a IDE do Arduino -> File -> Preferences. </li>
+                        <li> No campo "Additional Boards ..." -> Colocar a seguinte URL: "https://dl.espressif.com/dl/package_esp32_index.json" </li>
+                        <li> OK </li>
+                        <li> Tools -> Board -> Boards Manager </li>
+                        <li> Na barra de pesquisa : "esp32" -> Instalar o pacote Esp32</li>
+                        <li> Tools -> Board -> ESP32 Arduino -> ESP32 Wrover Module </li>
+                        <li> Tools -> Upload Speed -> 115200 </li>
+                        <li> Tools -> Partition Scheme -> Huge App (3MB no OTA/1MB SPIFFS)</li> 
+                    </ul>
+                    
+                </div>
+                <div class="api-sub-box-side">
+                    <img src="{{url_for('static', filename='img/ESP32-Config.png')}}">
+                </div>
+            </div>
+        </div>
+
+        <div class="api-box" id="esp-wifi">
+            <h1>Configurando Wifi</h1>
+            <div class="api-sub-box">
+                <div class="api-sub-box-side">
+                    <p>
+                        Para configurar a rede Wifi, precisamos modificar o código da ESP32-Cam, para fazer isso vamos usar o diagrama ao lado para
+                        fazer as conexões necessarias a fim de deixar a placa pronta para receber o código. Dentro do código vamos pesquisar a variável "ssid",
+                        ela contém o valor do nome da rede Wifi.A variavel com a senha deve estar logo abaixo ,"password", que contém o valor da senha da rede.
+                        Então é so fazer upload do código com a IDE do arduino configurada para a ESP32-Cam.
+                    </p>
+                </div>
+                <div class="api-sub-box-side">
+                    <img src="{{url_for('static', filename='img/Diagrama_2.png')}}">
+                </div>
+            </div>
+        </div>
+
+        <div class="api-box" id="arduino-config">
+            <h1>Realizando Conexões</h1>
+            <div class="api-sub-box">
+                <div class="api-sub-box-side">
+                    <p>
+                        Para fazer a montagem do arduino e os componentes , basta seguir o diagrama ao lado. 
+                        Para realizar uma montagem adequada podemos seguir a seguinte ordem:
+                    </p>
+
+                    <ul>
+                        <li> Conectar a bateria a protoboard </li>
+                        <li> Conectar Driver L298n </li>
+                        <li> Conectar Motores </li>
+                        <li> Conectar Arduino </li>
+                        <li> Conectar Esp32-Cam</li>
+                        <li> Conectar Sensor Ultrasonico </li>
+                        <li> Conectar Modulo Bluetooth </li>
+                        <li> Conectar Amplificador </li>
+                        <li> Conectar Auto-Falantes </li>
+                        <li> Conectar Cirtuito do Carregador da Bateria </li>
+                    </ul>
+
+                </div>
+                <div class="api-sub-box-side">
+                    <img src="{{url_for('static', filename='img/Diagrama.png')}}">
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </body>

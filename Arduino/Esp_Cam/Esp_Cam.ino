@@ -288,6 +288,7 @@ void send() {
       if (currentByte != '\n') {
         message.concat(currentByte);
       }
+      delay(15);
     }
     udp.beginPacket(udp.remoteIP(), udp.remotePort());
     udp.println(message);

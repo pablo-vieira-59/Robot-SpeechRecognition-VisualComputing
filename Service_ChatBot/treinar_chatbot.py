@@ -12,7 +12,8 @@ def load_datasets():
     paths = glob.glob('Dados/*.txt')
     for path in paths:
         intent = path.split('\\')[1].split('.')[0]
-        data = pd.read_csv(path,names=['speech'])
+        data = pd.read_csv(path,names=['speech','subclass'],sep=';')
+        data['subclass'] = data['subclass']
         data['intent'] = intent
         dataset = dataset.append(data)
     return dataset
@@ -51,6 +52,7 @@ def train_base_model(data :pd.DataFrame, vectorizer :CountVectorizer):
     joblib.dump(model,'Modelos/classificador_geral.joblib')
 
 dataset = load_datasets()
+print(dataset)
 count_vectorizer = CountVectorizer(ngram_range=(1,3), strip_accents='ascii', lowercase=True, analyzer='char')
 count_vectorizer.fit_transform(dataset['speech'])
 joblib.dump(count_vectorizer, 'Modelos/vectorizer.joblib')

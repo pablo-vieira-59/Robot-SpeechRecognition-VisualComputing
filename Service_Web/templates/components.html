@@ -13,7 +13,7 @@
 <body>
     <div class="float-bar">
         <div class="banner">
-            <div>Mr.BotRob</div>
+            <div>Assistente Virtual</div>
         </div>
         <nav class="nav-bar">
             <div class="nav-button">
@@ -23,10 +23,10 @@
                 <a href="{{url_for('components')}}">Componentes</a>
             </div>
             <div class="nav-button">
-                Imagens
+                <a href="{{url_for('images')}}">Imagens</a>
             </div>
             <div class="nav-button">
-                Sobre
+                <a href="{{url_for('documentation')}}">Documentação</a>
             </div>
         </nav>
     </div>
@@ -40,54 +40,74 @@
             </div>
 
             <div class="component-box">
-                <div class="black-box"></div>
                 <div class="component-text-box">
                     <div class="h3-box">
                         <h3>Arduino</h3>
                     </div>
                     <div class="p-box">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse. Augue lacus
-                            viverra vitae congue eu. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper
-                            morbi tincidunt.</p>
+                        <p>Arduino é uma plataforma de prototipagem eletrônica de hardware livre e de placa
+                            única, projetada com um microcontrolador Atmel AVR com suporte de entrada/saída embutido,
+                            uma linguagem de programação padrão, a qual tem origem em Wiring, e é essencialmente
+                            C/C++. O objetivo do projeto é criar ferramentas que são acessíveis, com baixo custo,
+                            flexíveis e fáceis de se usar por principiantes e profissionais. Principalmente para aqueles
+                            que não teriam alcance aos controladores mais sofisticados e ferramentas mais
+                            complicadas.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="img-div">
-                <img src="{{url_for('static', filename='img/esp32.jpg')}}" class="img-box">
+            <div class="component-box">
+                <div class="component-text-box">
+                    <div class="h3-box">
+                        <h3>ESP-32 Cam</h3>
+                    </div>
+                    <div class="p-box">
+                        <p>Este é o ESP32-CAM, uma placa muito pequena que une o poderoso módulo ESP32 com uma câmera
+                            OV2640 de 2MP e um slot para cartão MicroSD. Será
+                            possível tirar fotos e filmar, enviando essas imagens através da internet e criar uma
+                            verdadeira câmera IP com os recursos que precisar. Também é possível armazenar as imagens no
+                            cartão MicroSD para ver depois. Se o ambiente estiver muito escuro, acione o LED de flash
+                            embutido na placa para melhorar as imagens tiradas! Uma placa perfeita para projetos onde é
+                            necessário poder de processamento com uma câmera.</p>
+                    </div>
+                </div>
             </div>
 
+
+
             <div class="component-box">
-                <div class="black-box"></div>
                 <div class="component-text-box">
                     <div class="h3-box">
                         <h3>Chassi 4WD</h3>
                     </div>
                     <div class="p-box">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse. Augue lacus
-                            viverra vitae congue eu. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper
-                            morbi tincidunt.</p>
+                        <p>Kit de montagem de um chassi para aplicações robóticas, educacionais e projetos com Arduino.
+                            É composto por 4 motores DC 3-6v com caixa de redução 48:1 e tração nas 4 rodas 4WD.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="img-div">
-                <img src="{{url_for('static', filename='img/sensor.jpg')}}" class="img-box">
+            <div class="component-box">
+                <div class="component-text-box">
+                    <div class="h3-box">
+                        <h3>Sensor Ultrassonico</h3>
+                    </div>
+                    <div class="p-box">
+                        <p>O Sensor ultrassônico HC-SR04 é capaz de medir distâncias de 2cm a 4m com ótima precisão e
+                            baixo preço. Este módulo possui um circuito pronto com emissor e receptor acoplados e 4
+                            pinos (VCC, Trigger, ECHO, GND) para medição.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="component-box">
-                <div class="black-box"></div>
                 <div class="component-text-box">
                     <div class="h3-box">
                         <h3>Driver do Motor L298n</h3>
                     </div>
                     <div class="p-box">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse. Augue lacus
-                            viverra vitae congue eu. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper
-                            morbi tincidunt.</p>
+                        <p>Este Driver Ponte H é baseado no chip L298N, construído para controlar cargas indutivas como
+                            relés, solenoides, motores DC e motores de passo.</p>
                     </div>
                 </div>
             </div>
@@ -101,38 +121,16 @@
                 <img src="{{url_for('static', filename='img/arduino.jpg')}}" class="img-box">
             </div>
 
-            <div class="component-box">
-                <div class="black-box"></div>
-                <div class="component-text-box">
-                    <div class="h3-box">
-                        <h3>ESP-32 Cam</h3>
-                    </div>
-                    <div class="p-box">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse. Augue lacus
-                            viverra vitae congue eu. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper
-                            morbi tincidunt.</p>
-                    </div>
-                </div>
+            <div class="img-div">
+                <img src="{{url_for('static', filename='img/esp32.jpg')}}" class="img-box">
             </div>
 
             <div class="img-div">
                 <img src="{{url_for('static', filename='img/chassi.jpg')}}" class="img-box">
             </div>
 
-            <div class="component-box">
-                <div class="black-box"></div>
-                <div class="component-text-box">
-                    <div class="h3-box">
-                        <h3>Sensor Ultrassonico</h3>
-                    </div>
-                    <div class="p-box">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Tristique et egestas quis ipsum suspendisse. Augue lacus
-                            viverra vitae congue eu. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper
-                            morbi tincidunt.</p>
-                    </div>
-                </div>
+            <div class="img-div">
+                <img src="{{url_for('static', filename='img/sensor.jpg')}}" class="img-box">
             </div>
 
             <div class="img-div">

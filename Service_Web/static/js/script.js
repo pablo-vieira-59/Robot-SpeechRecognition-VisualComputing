@@ -26,10 +26,10 @@ function setOffline(div, icon){
 }
 
 function testSpeech(){
-    var req = $.get("http://127.0.0.1:5005/tts_answer");
+    var req = $.get("http://127.0.0.1:5003/speech_data");
     req.done(
         function (result){
-            var txt = document.createTextNode(result.speech);
+            var txt = document.createTextNode(result.message);
             var spc = document.createElement("br");
             speech_box.append(txt);
             speech_box.append(spc);

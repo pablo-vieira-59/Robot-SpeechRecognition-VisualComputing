@@ -1,5 +1,5 @@
 import socket
-import time
+import struct
 
 class UDPServer():
     # Configuração do Servidor
